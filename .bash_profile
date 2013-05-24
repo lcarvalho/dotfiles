@@ -1,3 +1,37 @@
+#############
+# FUNCTIONS #
+#############
+workon (){
+    virtual_env_name=$1
+    source ~/.virtualenvs/$virtual_env_name/bin/activate
+    if [[ "$virtual_env_name" =~ "_" ]]; then
+        virtual_env_name=$(echo $1 | cut -d "_" -f 1)
+    fi
+    if [ -d ~/Projects/$virtual_env_name ]; then
+        cd ~/Projects/$virtual_env_name
+    fi
+}
+
+runmysql(){
+    MYSQL_DATA_DIR=ramdisk
+    mysql.server stop || true
+    diskutil erasevolume HFS+ 'ramdisk' `hdiutil attach -nomount ram://1165430`
+    mysql_install_db --datadir=/Volumes/ramdisk --basedir=`brew --prefix mysql`
+    mysql.server start --datadir=/Volumes/ramdisk
+}
+
+#########
+# ALIAS #
+#########
+alias l='ls -lha'
+alias "cd.."="cd .."
+alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+
+#######
+# RVM #
+#######
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxBxxxxxxxxxxxxx
 
@@ -61,27 +95,4 @@ function parse_git_color
 
 PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\] \[$YELLOW\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[\033[\$(parse_git_color)\]\$(parse_git_branch)\[$EWHITE\]\nϟ\[$EWHITE\] \[$RESET\]"
 
-#############
-# FUNCTIONS #
-#############
-workon (){
-    virtual_env_name=$1
-    source ~/.virtualenvs/$virtual_env_name/bin/activate
-    if [[ "$virtual_env_name" =~ "_" ]]; then
-        virtual_env_name=$(echo $1 | cut -d "_" -f 1)
-    fi
-    if [ -d ~/Projects/$virtual_env_name ]; then
-        cd ~/Projects/$virtual_env_name
-    fi
-}
 
-#########
-# ALIAS #
-#########
-alias workon=workon
-alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
-
-#######
-# RVM #
-#######
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
