@@ -1,17 +1,16 @@
+########
+# PATH #
+########
+export PATH="`brew --prefix`/bin/ctags":$PATH
+
+##############
+# VIRTUALENV #
+##############
+source /usr/local/bin/virtualenvwrapper.sh
+
 #############
 # FUNCTIONS #
 #############
-workon (){
-    virtual_env_name=$1
-    source ~/.virtualenvs/$virtual_env_name/bin/activate
-    if [[ "$virtual_env_name" =~ "_" ]]; then
-        virtual_env_name=$(echo $1 | cut -d "_" -f 1)
-    fi
-    if [ -d ~/Projects/$virtual_env_name ]; then
-        cd ~/Projects/$virtual_env_name
-    fi
-}
-
 runmysql(){
     MYSQL_DATA_DIR=ramdisk
     mysql.server stop || true
@@ -23,15 +22,21 @@ runmysql(){
 #########
 # ALIAS #
 #########
-alias l='ls -lha'
-alias "cd.."="cd .."
+alias l="ls -lha"
+alias cd..="cd .."
 alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+alias ctags="`brew --prefix`/bin/ctags"
+alias youtube-dl='youtube-dl --title --continue --max-quality mp4 --extract-audio --audio-format "mp3" --audio-quality 320k '
 
 #######
 # RVM #
 #######
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+
+#################
+# CUSTOM COLORS #
+#################
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxBxxxxxxxxxxxxx
 
@@ -94,5 +99,3 @@ function parse_git_color
 }
 
 PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\] \[$YELLOW\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[\033[\$(parse_git_color)\]\$(parse_git_branch)\[$EWHITE\]\nϟ\[$EWHITE\] \[$RESET\]"
-
-
