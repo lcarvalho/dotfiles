@@ -36,3 +36,4 @@ set ruler
 set autoread
 set smartindent "indent the new lines as the previous
 set paste "Insert (PASTE)
+set backspace=indent,eol,start

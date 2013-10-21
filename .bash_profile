@@ -1,7 +1,13 @@
 ########
 # PATH #
 ########
-export PATH="`brew --prefix`/bin/ctags":$PATH
+export PATH="/usr/local/sbin":"/usr/local/bin":"`brew --prefix`/bin/ctags":"/usr/local/share/npm/bin":$PATH
+
+#########
+# RBENV #
+#########
+export RBENV_ROOT=/usr/local/var/rbenv
+eval "$(rbenv init -)"
 
 ##############
 # VIRTUALENV #
@@ -26,7 +32,8 @@ alias l="ls -lha"
 alias cd..="cd .."
 alias subl="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 alias ctags="`brew --prefix`/bin/ctags"
-alias youtube-dl='youtube-dl --title --continue --max-quality mp4 --extract-audio --audio-format "mp3" --audio-quality 320k '
+alias virtuoso_start="cd /usr/local/Cellar/virtuoso/6.1.4/var/lib/virtuoso/db/ && sudo virtuoso-t -f"
+alias youtube-dl="youtube-dl --reject-title \"`ls | python -c "import sys; file_list=sys.stdin.read().split('\n'); print '|'.join([file.split('-')[-1].replace('.mp3','') for file in file_list if file.endswith('mp3')])"`\" --title --continue --max-quality mp4 --extract-audio --audio-format 'mp3' --audio-quality 320k "
 
 #######
 # RVM #
