@@ -37,3 +37,9 @@ set autoread
 set smartindent "indent the new lines as the previous
 set paste "Insert (PASTE)
 set backspace=indent,eol,start
+set backupdir=/tmp
+set directory=/tmp
+
+let g:vim_json_syntax_conceal = 1
+let g:NERDTreeIgnore=['\~$', 'vendor', 'node_modules', '.git', '.gopath', '.sass-cache']
+let g:NERDTreeShowHidden=1
