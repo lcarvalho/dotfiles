@@ -3,12 +3,6 @@
 ########
 export PATH="/usr/local/sbin":"/usr/local/bin":"`brew --prefix`/bin/ctags":"/usr/local/share/npm/bin":$PATH
 
-#########
-# RBENV #
-#########
-export RBENV_ROOT=/usr/local/var/rbenv
-eval "$(rbenv init -)"
-
 ##############
 # VIRTUALENV #
 ##############
