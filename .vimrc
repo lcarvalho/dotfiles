@@ -52,3 +52,6 @@ let g:ctrlp_prompt_mappings = {
     \ }
 
 set wildignore+=*.so,*.swp,*.zip,*.pyc
+
+" JSHint2
+let jshint2_save = 1
