@@ -106,3 +106,6 @@ source /Users/lucascarvalho/.bashrc
 # GRC
 source "`brew --prefix`/etc/grc.bashrc"
 
+# HISTSIZE
+export HISTSIZE=""
+
