@@ -43,3 +43,12 @@ set directory=/tmp
 let g:vim_json_syntax_conceal = 1
 let g:NERDTreeIgnore=['\~$', 'vendor', 'node_modules', '.git', '.gopath', '.sass-cache', '\.pyc$']
 let g:NERDTreeShowHidden=1
+
+" Flake8 on save
+autocmd BufWritePost *.py call Flake8()
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
+
+set wildignore+=*.so,*.swp,*.zip,*.pyc
