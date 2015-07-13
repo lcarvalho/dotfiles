@@ -109,3 +109,7 @@ source "`brew --prefix`/etc/grc.bashrc"
 # HISTSIZE
 export HISTSIZE=""
 
+# GIT
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
