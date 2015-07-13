@@ -103,3 +103,6 @@ PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\] \[$YELLOW\]\w\[$WHITE\]\$([[ -n \$(git b
 # LOAD BASHRC
 source /Users/lucascarvalho/.bashrc
 
+# GRC
+source "`brew --prefix`/etc/grc.bashrc"
+
