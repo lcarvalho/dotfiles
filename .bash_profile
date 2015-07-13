@@ -99,3 +99,7 @@ function parse_git_color
 }
 
 PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\] \[$YELLOW\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[\033[\$(parse_git_color)\]\$(parse_git_branch)\[$EWHITE\]\nϟ\[$EWHITE\] \[$RESET\]"
+
+# LOAD BASHRC
+source /Users/lucascarvalho/.bashrc
+
