@@ -41,7 +41,7 @@ set backupdir=/tmp
 set directory=/tmp
 
 let g:vim_json_syntax_conceal = 1
-let g:NERDTreeIgnore=['\~$', 'vendor', 'node_modules', '.git', '.gopath', '.sass-cache', '\.pyc$']
+let g:NERDTreeIgnore=['\~$', 'vendor', 'node_modules', '.git', '.gopath', '.sass-cache', '\.pyc$', '__pycache__', '\.egg-info$', 'bower_components']
 let g:NERDTreeShowHidden=1
 
 " Flake8 on save
@@ -55,3 +55,9 @@ set wildignore+=*.so,*.swp,*.zip,*.pyc
 
 " JSHint2
 let jshint2_save = 1
+
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+let g:ctrlp_custom_ignore = '(bower_components|node_modules)$'
+
+" Ignoring to ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,bower_components,node_modules
