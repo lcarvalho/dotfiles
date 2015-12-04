@@ -41,7 +41,7 @@ set backupdir=/tmp
 set directory=/tmp
 
 let g:vim_json_syntax_conceal = 1
-let g:NERDTreeIgnore=['\~$', 'vendor', 'node_modules', '.git', '.gopath', '.sass-cache', '\.pyc$', '__pycache__', '\.egg-info$', 'bower_components']
+let g:NERDTreeIgnore=['\~$', 'vendor', 'node_modules', '.git', '.gopath', '.sass-cache', '\.pyc$', '__pycache__', '\.egg-info$', 'bower_components', 'Godeps']
 let g:NERDTreeShowHidden=1
 
 " Flake8 on save
